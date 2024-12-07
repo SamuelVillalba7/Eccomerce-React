@@ -1,29 +1,33 @@
 import { useEffect, useState } from "react";
 import ItemList from "../ItemList/ItemList";
-import {findAllProducts} from "../../service/SpringBoot/index"
+import {findAllProducts, findByCategory} from "../../service/SpringBoot/index"
+import { useParams } from "react-router-dom";
+
 
 export default function ItemListContainer(){
 
 
     const [products, setProducts]= useState([]);
+    const {id}= useParams()
 
     useEffect(()=>{
        async function fetchProducts() {
         try{
-            const data= await findAllProducts()
+
+            const fun = id ? findByCategory : findAllProducts;
+            const data= await fun(id)
             setProducts(data)
         }catch(error){
             console.log(error)
         }
        }
         fetchProducts()
-    },[])
-    return(
-        <div className="container">
-            <ItemList products={products}/>
-        
-        </div>
+    },[id])
 
+    return(
+        <div>
+            <ItemList products={products}/>
+        </div>
     )
 
 }

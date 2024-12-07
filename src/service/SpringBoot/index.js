@@ -21,3 +21,37 @@ export async function findAllProducts(){
 
 }
 
+export async function findByCategory(id){
+    const url = `http://localhost:8080/product/findByCategory/${id}`;
+    
+    try{
+        const res = await fetch(url)
+        if (!res.ok) {
+            throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        const resJSON = await res.json()
+        return resJSON
+    }catch(error){
+        console.log(error)
+    }
+
+}
+
+
+export async function findAllCategories() {
+    
+    const url = "http://localhost:8080/category/findAll";
+
+
+    try{
+        const res = await fetch(url)
+        if(!res.ok){
+            throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        const resJSON = await res.json()
+        return resJSON
+    }catch(error){
+        console.log(error)
+    }
+
+}
