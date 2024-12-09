@@ -1,0 +1,13 @@
+.sectionProducts{
+    width: 75%;
+}
+
+.product-filter__title {
+    font-family: "Poppins", sans-serif;
+    font-size: 2rem;
+}
+
+.product-filter__results {
+    font-family: "Montserrat", sans-serif;
+    color: rgb(80, 78, 78);
+}

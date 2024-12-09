@@ -1,0 +1,8 @@
+.filters-container {
+    display: flex;
+    width: 100%;
+    height: auto;
+    padding: 0 9rem;
+    padding-top: 3rem;
+}
+

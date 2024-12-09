@@ -55,3 +55,21 @@ export async function findAllCategories() {
     }
 
 }
+
+
+export async function findProductById(id) {
+    
+    const url= `http://localhost:8080/product/findById/${id}`
+
+    try{
+        const res = await fetch(url)
+        if(!res.ok){
+            throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        const resJSON = await res.json()
+        return resJSON
+
+    }catch(error){
+        console.log(error)
+    }
+}

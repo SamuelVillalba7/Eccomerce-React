@@ -11,13 +11,8 @@ export default function NavBar(){
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-                <Link className="nav-link active" aria-current="page" to="/">Home</Link>
-                {/* <Link className="nav-link" to="/category/monitor">monitor</Link>
-                <Link className="nav-link" to="/category/mouse">mouse</Link>
-                <Link className="nav-link" to="/category/teclado">teclado</Link>
-                <Link className="nav-link" to="/category/parlante">parlante</Link>
-                <Link className="nav-link" to="/category/laptop">laptop</Link>
-                <Link className="nav-link" to="/cart">carrito</Link> */}
+                <Link className="nav-link " to="/">Home</Link>
+                <Link className="nav-link" to="/category">Categories</Link>
             </div>
             </div>
         </div>

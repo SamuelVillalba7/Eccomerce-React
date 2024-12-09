@@ -1,8 +1,10 @@
 
 import './App.css'
-import Filters from './filters/filters'
+
 import {BrowserRouter,Routes,Route} from "react-router-dom"
 import NavBar from './components/NavBar/NavBar'
+import Filters from './components/Filters/filters'
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
 
 function App() {
   
@@ -12,8 +14,9 @@ function App() {
       <NavBar/>
       <Routes>
         <Route path='/' element={<h1>Bienvenidos</h1>} />
+        <Route path='/category' element={<Filters/>} />
         <Route path='/category/:id' element={<Filters/>} />
-        <Route path='/item-detail/:id' element={<h1>404</h1>} />
+        <Route path='/item-detail/:id' element={<ItemDetailContainer/>} />
         <Route path='/*' element={<h1>no flaco sali</h1>} />
 
 

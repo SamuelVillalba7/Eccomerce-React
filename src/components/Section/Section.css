@@ -1,0 +1,18 @@
+.section {
+    background-color: #e0dfdf;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 10rem;
+}
+
+.section__p {
+    font-family: "Montserrat", sans-serif;
+    color: rgb(80, 78, 78);
+}
+
+.section__title {
+    font-family: "Poppins", sans-serif;
+    font-size: 2rem;
+}

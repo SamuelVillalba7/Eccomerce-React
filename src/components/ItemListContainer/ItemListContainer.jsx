@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ItemList from "../ItemList/ItemList";
 import {findAllProducts, findByCategory} from "../../service/SpringBoot/index"
 import { useParams } from "react-router-dom";
-
+import "./ItemListContainer.css"
 
 export default function ItemListContainer(){
 
@@ -25,7 +25,7 @@ export default function ItemListContainer(){
     },[id])
 
     return(
-        <div>
+        <div className="itemListContainer">
             <ItemList products={products}/>
         </div>
     )
