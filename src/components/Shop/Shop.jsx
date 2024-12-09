@@ -1,18 +1,18 @@
 
-import "./Filters.css"
+import "./Shop.css"
 import Section from "../Section/Section"
 import SectionFilters from "../SectionFilters/SectionFilters"
 import SectionProducts from "../SectionProducts/SectionProducts"
 
-
-export default function Filters(){
-
+export default function Shop(){
+   
     return(
     <>
         <Section/>
         <div className="filters-container">
             <SectionFilters/>
             <SectionProducts/>
+          
         </div>
     </>
     
