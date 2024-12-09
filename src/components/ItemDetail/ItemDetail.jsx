@@ -1,23 +1,38 @@
+import { useState } from "react"
+import { useCart } from "../../hooks/useCart"
 import "./ItemDetail.css"
 
 export default function ItemDetail ({item}){
-        
+    
+    const [cant, setCant]= useState(1)
+
+    const{addItem}=useCart()
+    
+    const handleAdd =()=>{
+        addItem(item,cant)
+    }
+    const handleChange =(e)=>{
+        const value= parseInt(e.target.value, 10)
+        setCant(value)
+    }
+
     return(
         <div className="detalle-producto">
 
             <div className="detalle-producto__container-img">
-                <img className="detalle-producto__img" src="#" alt=""/>
+                <img className="detalle-producto__img" src={item.urlImage} alt=""/>
             </div>
         
         
             <div className="detalle-producto__container-text">
                 <h2 className="detalle-producto__name">{item.name}</h2>
-                <p className="detalle-producto__price"></p>
-                <p className="detalle-producto__description"></p>
+                <p className="detalle-producto__price">{item.price}</p>
+                <p className="detalle-producto__description">{item.description}</p>
                 <div className="detalle-producto__container-buttons">
-                    <input type="number" className="detalle-producto__cantidad" name="quantity" value="1" title="Qty" size="4" min="1" max="" step="1" placeholder=""/>
-                 
-                    <button className="detalle-producto__button">Add to cart</button>
+             
+                    <input type="number" className="detalle-producto__cantidad" onChange={handleChange} value={cant} min="1"/>
+        
+                    <button className="detalle-producto__button" onClick={handleAdd} >Add to cart</button>
                 
                 </div>
     

@@ -10,8 +10,10 @@ export function CartProvider({children}){
 
     const isInCart=(id)=>{
         return cart.some((i)=>{
-            i.id==id
+            return i.id==id
         })
+
+        // const isInCart = (id) => cart.some((item) => item.id === id);
     }
 
 

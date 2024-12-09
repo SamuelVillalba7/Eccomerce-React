@@ -1,0 +1,119 @@
+.product {
+    width: 100%;
+    height: 100%;
+    padding: 2rem 2rem;
+    border-radius: 1rem;
+    background-color: white;
+    box-shadow: 1px 0px 9px 0px rgba(0,0,0,0.66);
+    -webkit-box-shadow: 1px 0px 9px 0px rgba(0,0,0,0.66);
+    -moz-box-shadow: 1px 0px 9px 0px rgba(0,0,0,0.66);
+    transition: 0.3s;
+    position: relative;
+    cursor: pointer;
+}
+
+.product__sale {
+    position: absolute;
+    font-size: 13px;
+    left: 4%;
+    top: 4%;
+    border-radius: 50%;
+    background-color: #f42c37;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+}
+
+.product__img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    position: relative;
+    height: 70%;
+}
+
+.product__text {
+    height: 30%;
+    display:flex;
+    flex-direction:column;
+    align-items:start;
+    justify-content:end;
+}
+
+.product__img {
+    border-radius: 1rem;
+    width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.product__name {
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    line-height: 24px;
+    letter-spacing: -1px;
+    font-weight: 400;
+    margin-bottom: 8px;
+    width: 100%;
+    border-top: 1px solid grey;
+    padding-top:1rem;
+}
+
+.product__price {
+    font-weight: 700;
+    font-size: 1.3rem;
+    font-family: "Montserrat", sans-serif;
+    transition: opacity 0.3s;
+}
+
+a{
+    text-decoration:none;
+}
+
+
+.product:hover .product__price {
+    opacity: 0;
+}
+
+.product:hover .product__name {
+    color: #f42c37;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.product:hover .btn2 {
+    opacity: 1;
+}
+
+
+.btn2 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.8rem;
+    color: white;
+    background-color: #f42c37;
+    border-radius: 2rem;
+    text-align: center;
+    padding: 0.5rem 1.3rem;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+    .btn2:hover {
+        color: white;
+        background-color: #f42c37;
+    }
+
+    .product-box {
+        width: 33.3%;
+        height: 25rem;
+        padding: 1rem;
+        margin-top: 1rem;
+    }

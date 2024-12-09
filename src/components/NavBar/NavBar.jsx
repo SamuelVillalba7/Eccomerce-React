@@ -13,6 +13,7 @@ export default function NavBar(){
             <div className="navbar-nav">
                 <Link className="nav-link " to="/">Home</Link>
                 <Link className="nav-link" to="/category">Categories</Link>
+                <Link className="nav-link" to="/cart">Cart</Link>
                 
             </div>
             </div>
