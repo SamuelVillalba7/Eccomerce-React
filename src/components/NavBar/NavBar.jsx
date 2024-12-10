@@ -14,6 +14,8 @@ export default function NavBar(){
                 <Link className="nav-link " to="/">Home</Link>
                 <Link className="nav-link" to="/category">Categories</Link>
                 <Link className="nav-link" to="/cart">Cart</Link>
+                <Link className="nav-link" to="/login">Login</Link>
+                <Link className="nav-link" to="/singIn">SingIn</Link>
                 
             </div>
             </div>

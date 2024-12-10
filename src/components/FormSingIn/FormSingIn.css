@@ -1,0 +1,39 @@
+
+.login__form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.login__input {
+    width: 100%;
+    border: none;
+    border-bottom: #222222 1px solid;
+    background-color: #f5f5f5;
+    margin-bottom: 0.8rem;
+}
+
+    .login__input:focus {
+        outline: none; /* Quita el borde */
+    }
+
+
+.login__button {
+    margin: 1rem 0;
+    background-color: #f42c37;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.3rem;
+    color: white;
+}
+
+
+
+.cajita {
+    height: 30rem;
+}
+
+.lbl{
+    color:red;
+    font-size:1rem;
+}

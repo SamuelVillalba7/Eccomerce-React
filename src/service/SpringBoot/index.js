@@ -73,3 +73,71 @@ export async function findProductById(id) {
         console.log(error)
     }
 }
+
+
+
+export async function addUser() {
+
+    const user={
+        "name": "Samuasdasdasdel",
+        "lastname":"Villalba",
+        "mail":"villalbasamuel@gmail.com",
+        "password":"123",
+        "admin": 0
+    }
+    const url = "http://localhost:8080/user/save"
+    
+    const config={
+        method:"POST",
+        body: JSON.stringify(user),
+        headers: {
+            "Content-Type": "application/json",
+          }
+    }
+
+    try{
+       const response = await fetch(url,config)
+       if (!response.ok) {
+        throw new Error(`Error en la solicitud: ${response.status} ${response.statusText}`);
+    }
+
+    }catch(error){
+        console.log(error)
+    }
+
+    
+}
+
+
+export async function login(obj){
+
+    const user = {
+        mail:obj.mail,
+        password: obj.password
+    }
+    const url = "http://localhost:8080/user/login"
+    const config= {
+        method:"POST",
+        body: JSON.stringify(user), 
+        headers: {
+            "Content-Type": "application/json",
+          }
+    }
+    try{
+
+        const response= await fetch(url,config)
+        if(!response.ok){
+            throw new Error(`Error en la solicitud: ${response.status} ${response.statusText}`);
+        }
+
+        const data = await response.json()
+
+        return data
+
+    }catch(error){
+        console.log(error)
+    }
+
+
+
+}
