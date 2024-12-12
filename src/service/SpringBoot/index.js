@@ -123,7 +123,6 @@ export async function login(obj){
             "Content-Type": "application/json",
           }
     }
-    try{
 
         const response= await fetch(url,config)
         if(!response.ok){
@@ -133,11 +132,6 @@ export async function login(obj){
         const data = await response.json()
 
         return data
-
-    }catch(error){
-        console.log(error)
-    }
-
 
 
 }

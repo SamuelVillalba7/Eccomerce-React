@@ -12,7 +12,7 @@ export default function NavBar(){
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
                 <Link className="nav-link " to="/">Home</Link>
-                <Link className="nav-link" to="/category">Categories</Link>
+                <Link className="nav-link" to="/shop">Shop</Link>
                 <Link className="nav-link" to="/cart">Cart</Link>
                 <Link className="nav-link" to="/login">Login</Link>
                 <Link className="nav-link" to="/singIn">SingIn</Link>

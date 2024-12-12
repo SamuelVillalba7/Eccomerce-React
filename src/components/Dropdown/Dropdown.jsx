@@ -32,7 +32,7 @@ export default function Dropdown({name}){
                     {name}
                 </button>
                 <ul className="dropdown-menu">
-                <li><Link className="dropdown-item" to={`/category`} >Todas</Link></li>
+                <li><Link className="dropdown-item" to={`/shop`} >Todas</Link></li>
                    {item.map((i)=>(
                         <ItemDropdown key={i.id} item={i}/>
                     ))}

@@ -49,13 +49,21 @@ export function CartProvider({children}){
         )
 
     }
+    const total=()=>{
+        let acum = 0
+        cart.forEach((i)=>{
+            acum += i.price * i.quantity
+        })
+        return acum
+    }
 
     const obj ={
         cart, 
         setCart,
         isInCart,
         addItem,
-        deleteById       
+        deleteById,
+        total 
     }
 
 

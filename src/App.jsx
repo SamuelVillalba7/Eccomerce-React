@@ -9,6 +9,8 @@ import Shop from './components/Shop/Shop'
 import Cart from './components/Cart/Cart'
 import Login from './components/Login/Login'
 import SingIn from './components/SingIn/SingIn'
+import { UserProvider } from './context/UserContext'
+import Checkout from './components/Checkout/Checkout'
 
 function App() {
   
@@ -17,16 +19,19 @@ function App() {
     <BrowserRouter>
       <CartProvider>
         <NavBar/>
-        <Routes>
-          <Route path='/' element={<h1>Bienvenidos</h1>} />
-          <Route path='/category' element={<Shop/>} />
-          <Route path='/category/:id' element={<Shop/>} />
-          <Route path='/item-detail/:id' element={<ItemDetailContainer/>} />
-          <Route path='/login' element={<Login/>} />
-          <Route path='/singIn' element={<SingIn/>} />
-          <Route path='/cart' element={<Cart/>} />
-          <Route path='/*' element={<h1>no flaco sali</h1>} />
-        </Routes>
+        <UserProvider>
+          <Routes>
+            <Route path='/' element={<h1>Bienvenidos</h1>} />
+            <Route path='/shop' element={<Shop/>} />
+            <Route path='/category/:id' element={<Shop/>} />
+            <Route path='/item-detail/:id' element={<ItemDetailContainer/>} />
+            <Route path='/login' element={<Login/>} />
+            <Route path='/singIn' element={<SingIn/>} />
+            <Route path='/cart' element={<Cart/>} />
+            <Route path='/checkout' element={<Checkout/>} />
+            <Route path='/*' element={<h1>no flaco sali</h1>} />
+          </Routes>
+        </UserProvider>
       </CartProvider>
     </BrowserRouter>
   )
