@@ -76,20 +76,21 @@ export async function findProductById(id) {
 
 
 
-export async function addUser() {
+export async function addUser(user) {
 
-    const user={
-        "name": "Samuasdasdasdel",
-        "lastname":"Villalba",
-        "mail":"villalbasamuel@gmail.com",
-        "password":"123",
+    const aux={
+        "name": user.name,
+        "lastname":user.lastname,
+        "mail":user.mail,
+        "phone":user.phone,
+        "password":user.password,
         "admin": 0
     }
     const url = "http://localhost:8080/user/save"
     
     const config={
         method:"POST",
-        body: JSON.stringify(user),
+        body: JSON.stringify(aux),
         headers: {
             "Content-Type": "application/json",
           }

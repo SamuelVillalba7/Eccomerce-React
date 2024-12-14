@@ -1,11 +1,8 @@
 
 import { Link } from "react-router-dom";
-import useIsLogin from "../../hooks/useIsLogin";
 import Table from "../Table/Table";
 
-
 export default function Cart(){
-    useIsLogin()
 
     return(
         <div className="container">
