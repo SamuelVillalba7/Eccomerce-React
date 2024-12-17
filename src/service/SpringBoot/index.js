@@ -1,7 +1,14 @@
+export const services={
+    findAllCategoriesSP,
+    findAllProductsSP,
+    findByCategorySP,
+    findProductByIdSP,
+    loginSP,
+    addUserSP
+}
 
 
-
-export async function findAllProducts(){
+export async function findAllProductsSP(){
     const url = "http://localhost:8080/product/findAll";
     const method= {
         method: "GET"
@@ -21,7 +28,7 @@ export async function findAllProducts(){
 
 }
 
-export async function findByCategory(id){
+export async function findByCategorySP(id){
     const url = `http://localhost:8080/product/findByCategory/${id}`;
     
     try{
@@ -38,7 +45,7 @@ export async function findByCategory(id){
 }
 
 
-export async function findAllCategories() {
+export async function findAllCategoriesSP() {
     
     const url = "http://localhost:8080/category/findAll";
 
@@ -57,7 +64,7 @@ export async function findAllCategories() {
 }
 
 
-export async function findProductById(id) {
+export async function findProductByIdSP(id) {
     
     const url= `http://localhost:8080/product/findById/${id}`
 
@@ -76,7 +83,7 @@ export async function findProductById(id) {
 
 
 
-export async function addUser(user) {
+export async function addUserSP(user) {
 
     const aux={
         "name": user.name,
@@ -110,7 +117,7 @@ export async function addUser(user) {
 }
 
 
-export async function login(obj){
+export async function loginSP(obj){
 
     const user = {
         mail:obj.mail,

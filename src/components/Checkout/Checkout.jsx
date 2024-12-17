@@ -1,12 +1,43 @@
 
 import { useCart } from "../../hooks/useCart"
 import Table from "../Table/Table"
+import { createOrderFB } from "../../service/firebase/indexFirebase"
+import { useState } from "react"
+
+
 import "./Checkout.css"
+import { useNavigate } from "react-router-dom"
+
 export default function Checkout(){
     
-    const{total}=useCart()
-    
-    
+
+       const [name,setName] = useState("")
+        const [lastname,setLastname] = useState("")
+        const [phone,setPhone] = useState("")
+        const [mail,setMail] = useState("")
+        const navegate = useNavigate()
+
+     const {getTotal,cart,clearCart}= useCart()
+     
+
+     const handleAdd=()=>{
+        const user={
+            name,
+            lastname,
+            phone,
+            mail
+        }
+        const obj = {
+            getTotal,
+            cart,
+            clearCart,
+            user
+         }
+        createOrderFB(obj)
+        navegate("/")
+    }
+
+
     
     return(
         <>
@@ -18,7 +49,7 @@ export default function Checkout(){
                 <div className="step-title">1. Revisión del Carrito</div>
                 <Table flag={0}/>
                 <div className="total-container text-right">
-                    <p className="total">Total es : $ {total()}</p>
+                    <p className="total">Total es : $ {getTotal()}</p>
                 </div>
             </div>
 
@@ -27,31 +58,22 @@ export default function Checkout(){
                 <div className="step-title">2. Datos del Cliente</div>
                 <div className="form-group">
                     <label className="form-label">Nombre</label>
-                    <input type="text" placeholder="Ingrese su nombre"  className="form-control" />
+                    <input type="text" placeholder="Ingrese su nombre" value={name} onChange={(e)=>setName(e.target.value)} className="form-control" />
                 </div>
                 <div className="form-group">
                     <label className="form-label">Apellido</label>
-                    <input type="text" placeholder="Ingrese su apellido"  className="form-control" />
+                    <input type="text" placeholder="Ingrese su apellido" value={lastname} onChange={(e)=>setLastname(e.target.value)} className="form-control" />
                 </div>
                 <div className="form-group">
                     <label className="form-label">Email</label>
-                    <input type="text" placeholder="Ingrese su email"  className="form-control" />
+                    <input type="text" placeholder="Ingrese su email" value={mail} onChange={(e)=>setMail(e.target.value)} className="form-control" />
                 </div>
                 <div className="form-group">
                     <label className="form-label">Telefono</label>
-                    <input type="text" placeholder="Ingrese su telefono"  className="form-control" />
+                    <input type="text" placeholder="Ingrese su telefono" value={phone} onChange={(e)=>setPhone(e.target.value)} className="form-control" />
                 </div>
             </div>
-            <button className="btn btn-primary">Finalizar compra</button>
-
-
-
-
-
-
-
-
-
+            <button className="btn btn-primary" onClick={handleAdd}>Finalizar compra</button>
 
 
 
@@ -163,3 +185,5 @@ export default function Checkout(){
 </div>
 
 */
+
+

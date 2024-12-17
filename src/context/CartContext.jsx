@@ -49,12 +49,16 @@ export function CartProvider({children}){
         )
 
     }
-    const total=()=>{
+    const getTotal=()=>{
         let acum = 0
         cart.forEach((i)=>{
             acum += i.price * i.quantity
         })
         return acum
+    }
+
+    const clearCart=()=>{
+        setCart([])
     }
 
     const obj ={
@@ -63,7 +67,8 @@ export function CartProvider({children}){
         isInCart,
         addItem,
         deleteById,
-        total 
+        getTotal ,
+        clearCart
     }
 
 

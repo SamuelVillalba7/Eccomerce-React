@@ -1,21 +1,24 @@
-import {login} from "../../service/SpringBoot/index"
+//import {loginSP} from "../../service/SpringBoot/index"
 import { useState } from "react"
 import "./FormLogin.css"
 import { Link, useNavigate } from "react-router-dom"
 import useUser from "../../hooks/useUser"
+import { useService } from "../../hooks/useService"
+
 export default function FormLogin(){
     const navigate = useNavigate()
     const [error,setError]=useState("")
     const [mail,setMail]=useState("")
     const [password,setPassword]=useState("")
     const {setUser}= useUser()
+    const { service } = useService()
     const handleAdd =(event)=>{
         event.preventDefault();
         const user={
             mail,
             password
         }
-        login(user).then((res)=>{
+        service.login(user).then((res)=>{
             setUser(res)
             console.log(res)
             navigate("/shop")

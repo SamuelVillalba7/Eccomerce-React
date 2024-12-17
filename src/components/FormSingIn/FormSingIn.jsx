@@ -1,8 +1,9 @@
 
 import "./FormSingIn.css"
-import {addUser} from "../../service/SpringBoot/index"
+
 import {useState} from "react"
 import { useNavigate } from "react-router-dom"
+import { useService } from "../../hooks/useService"
 export default function FormSingIn(){
 
     const [name,setName] = useState("")
@@ -11,8 +12,9 @@ export default function FormSingIn(){
     const [mail,setMail] = useState("")
     const [password,setPassword] = useState("")
     const navegate= useNavigate() 
-
-    const addHandle=()=>{
+    const {service } = useService() 
+    const addHandle=(event)=>{
+        event.preventDefault();
         const user ={
             name,
             lastname,
@@ -20,12 +22,18 @@ export default function FormSingIn(){
             mail,
             password
         }
-        addUser(user)
-        navegate("/login")
+        service.addUser(user).then((user) => {
+            console.log("Usuario registrado:", user);
+            navegate("/login")
+        })
+        .catch((error) => {
+            console.error("Error en el registro:", error.message);
+        })
+        
     }
     return(
         <>
-            <form className="login__form">
+            <form className="login__form" onSubmit={addHandle}>
                     <label >Nombre</label>
                     <input type="text" className="login__input" value={name} onChange={(e)=>setName(e.target.value)}/>
                     <label>Apellido</label>
@@ -37,7 +45,7 @@ export default function FormSingIn(){
                     <label >Contraseña</label>
                     <input type="text" className="login__input" value={password} onChange={(e)=>setPassword(e.target.value)}/>
 
-                    <button className="login__button" onClick={addHandle}>Registrar</button>
+                    <button className="login__button" type="submit" >Registrar</button>
                    
                     
                 </form>

@@ -1,17 +1,18 @@
 import ItemDropdown from "../ItemDropdown/ItermDropdown";
-import {findAllCategories} from "../../service/SpringBoot/index.js"
 import { useEffect, useState } from "react";
 import {Link} from "react-router-dom"
+import {useService} from "../../hooks/useService"
+
 export default function Dropdown({name}){
 
     const [item,setItems]= useState([])
-
+    const {service} = useService()
     useEffect(()=>{
 
         async function fetchFuncion() {
             
             try{
-                const res = await findAllCategories()
+                const res = await service.findAllCategories()
                 setItems(res)
             }catch(error){
                 console.log(error)
@@ -23,7 +24,7 @@ export default function Dropdown({name}){
         fetchFuncion()
 
 
-    },[])
+    },[service])
 
     return(
         <>
