@@ -5,15 +5,18 @@ import {
     findByCategorySP,
     findProductByIdSP,
     loginSP,
-    addUserSP} from "../service/SpringBoot/index"
+    addUserSP,
+    createOrderSP} from "../service/SpringBoot/index"
 
 import {
     findAllCategoriesFB,
     findAllProductsFB,
     findByCategoryFB,
+    findCategoryByIdFB,
     findProductByIdFB,
     loginFB,
-    addUserFB} from "../service/firebase/indexFirebase" 
+    addUserFB,
+    createOrderFB} from "../service/firebase/indexFirebase" 
 
 
 
@@ -28,7 +31,9 @@ export function ServiceProvider({children}){
         findByCategory:findByCategoryFB ,
         findProductById: findProductByIdFB,
         login:loginFB ,
-        addUser : addUserFB
+        addUser : addUserFB,
+        createOrder : createOrderFB,
+        findCategoryById:findCategoryByIdFB
     })
 
 
@@ -39,7 +44,8 @@ export function ServiceProvider({children}){
             findByCategory:findByCategorySP ,
             findProductById: findProductByIdSP,
             login:loginSP ,
-            addUser : addUserSP
+            addUser : addUserSP,
+            createOrder: createOrderSP
         })
     }
 
@@ -50,7 +56,9 @@ export function ServiceProvider({children}){
             findByCategory:findByCategoryFB ,
             findProductById: findProductByIdFB,
             login:loginFB ,
-            addUser : addUserFB
+            addUser : addUserFB,
+            createOrder : createOrderFB,
+            findCategoryById:findCategoryByIdFB
         })
     }
 

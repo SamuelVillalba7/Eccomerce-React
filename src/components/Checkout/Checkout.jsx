@@ -1,39 +1,68 @@
 
 import { useCart } from "../../hooks/useCart"
 import Table from "../Table/Table"
-import { createOrderFB } from "../../service/firebase/indexFirebase"
+import { useService } from "../../hooks/useService"
 import { useState } from "react"
 
-
+import useUser from "../../hooks/useUser"
 import "./Checkout.css"
 import { useNavigate } from "react-router-dom"
 
 export default function Checkout(){
     
-
+    const {service}= useService()
        const [name,setName] = useState("")
         const [lastname,setLastname] = useState("")
         const [phone,setPhone] = useState("")
         const [mail,setMail] = useState("")
         const navegate = useNavigate()
-
-     const {getTotal,cart,clearCart}= useCart()
+    const {user} = useUser()
+     const {getTotal,orderDetail,cart,clearCart}= useCart()
      
 
-     const handleAdd=()=>{
-        const user={
+      async function handleAdd(){
+        const idUser = user.id
+        const total = getTotal()
+        const orderDetails = orderDetail()
+
+   
+        const userAux={
             name,
             lastname,
             phone,
             mail
         }
-        const obj = {
+           
+
+
+
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0'); // Meses van de 0 a 11
+        const dd = String(today.getDate()).padStart(2, '0');
+    
+        
+    const formattedDate = `${yyyy}-${mm}-${dd}`;
+    
+        const order = {
+            idUser: idUser,
+            totalAmount: total,
+            paymentMethod:"credito",
+            orderDetails: orderDetails,
+            date: formattedDate,
+            userAux,
             getTotal,
-            cart,
             clearCart,
-            user
-         }
-        createOrderFB(obj)
+            cart
+        }
+        
+        try{
+            const res = await service.createOrder(order)
+            console.log(res)
+        }catch(err){
+            console.log(err)
+        }
+    
         navegate("/")
     }
 

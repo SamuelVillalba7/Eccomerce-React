@@ -39,6 +39,16 @@ export function CartProvider({children}){
         }
     }
 
+    const orderDetail =()=>{
+
+        return cart.map(i => ({
+            unitPrice: i.price,
+            quantity: i.quantity,
+            idProduct: i.id
+        }));
+
+    }
+
     const deleteById=(id)=>{
         setCart((prev)=>
             prev.filter((aux)=>{
@@ -68,7 +78,8 @@ export function CartProvider({children}){
         addItem,
         deleteById,
         getTotal ,
-        clearCart
+        clearCart,
+        orderDetail
     }
 
 

@@ -127,6 +127,23 @@ export async function findProductByIdFB(id) {
     }
 }
 
+export async function findCategoryByIdFB(id) {
+    try {
+        const ref = doc(db, "categories", id);
+        const snapshot = await getDoc(ref);
+        if (snapshot.exists()) {
+            return { id: snapshot.id, ...snapshot.data() };
+        } else {
+            console.error("No se encontró la categoria con ID:", id);
+            return null; // Si el producto no existe
+        }
+    } catch (err) {
+        console.error("Error al obtener el producto:", err);
+        throw err;
+    }
+}
+
+
 
 
 
@@ -162,16 +179,16 @@ export async function findAllCategoriesFB() {
 }
 
 
-export async function createOrderFB({cart, getTotal, clearCart, user}){
+export async function createOrderFB({cart, getTotal, clearCart, userAux}){
     const total = getTotal();
   
     try {
         const objOrder = {
             buyer: {
-                name: user.name,
-                lastName: user.lastname,
-                phone: user.phone,
-                email: user.mail
+                name: userAux.name,
+                lastName: userAux.lastname,
+                phone: userAux.phone,
+                email: userAux.mail
             },
             items: cart,
             total,

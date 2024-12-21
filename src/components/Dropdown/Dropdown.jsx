@@ -1,4 +1,4 @@
-import ItemDropdown from "../ItemDropdown/ItermDropdown";
+import ItemDropdown from "../ItemDropdown/ItemDropdown";
 import { useEffect, useState } from "react";
 import {Link} from "react-router-dom"
 import {useService} from "../../hooks/useService"

@@ -143,3 +143,26 @@ export async function loginSP(obj){
 
 
 }
+
+
+export async function createOrderSP(order) {
+
+    const url = "http://localhost:8080/order/save"
+    const config = {
+        method:"POST",
+        body: JSON.stringify(order), 
+        headers: {
+            "Content-Type": "application/json",
+          }
+    }
+
+    const response = await fetch(url,config)
+    if(!response.ok){
+        throw new Error(`Error en la solicitud: ${response.status} ${response.statusText}`);
+    }
+
+    const data = await response.json()
+
+    return data
+
+}
