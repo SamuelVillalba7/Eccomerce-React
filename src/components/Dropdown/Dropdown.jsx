@@ -2,23 +2,22 @@ import ItemDropdown from "../ItemDropdown/ItemDropdown";
 import { useEffect, useState } from "react";
 import {Link} from "react-router-dom"
 import {useService} from "../../hooks/useService"
+import { useNotification } from "../../hooks/useNotification";
 
 export default function Dropdown({name}){
 
     const [item,setItems]= useState([])
     const {service} = useService()
+    const {setNotification} = useNotification()
     useEffect(()=>{
-
         async function fetchFuncion() {
             
             try{
                 const res = await service.findAllCategories()
                 setItems(res)
-            }catch(error){
-                console.log(error)
+            }catch(err){
+                setNotification("warning", err)
             }
-            
-
         }
 
         fetchFuncion()

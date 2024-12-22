@@ -4,8 +4,10 @@ import "./FormLogin.css"
 import { Link, useNavigate } from "react-router-dom"
 import useUser from "../../hooks/useUser"
 import { useService } from "../../hooks/useService"
+import { useNotification } from "../../hooks/useNotification"
 
 export default function FormLogin(){
+     const {setNotification} = useNotification()
     const navigate = useNavigate()
     const [error,setError]=useState("")
     const [mail,setMail]=useState("")
@@ -20,7 +22,7 @@ export default function FormLogin(){
         }
         service.login(user).then((res)=>{
             setUser(res)
-            console.log(res)
+            setNotification("success","Bienvenido!!!")
             navigate("/shop")
         })
         .catch(()=>{   

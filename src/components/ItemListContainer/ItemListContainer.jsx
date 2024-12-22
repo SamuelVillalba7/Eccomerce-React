@@ -5,10 +5,10 @@ import { useParams } from "react-router-dom";
 
 import "./ItemListContainer.css"
 import { useService } from "../../hooks/useService";
-
+import { useNotification } from "../../hooks/useNotification";
 export default function ItemListContainer(){
 
-
+    const {setNotification} = useNotification()
     const [products, setProducts]= useState([]);
     const {id}= useParams()
     const { service} = useService()
@@ -20,8 +20,8 @@ export default function ItemListContainer(){
             const data= await fun(parseInt(id))
 
             setProducts(data)
-        }catch(error){
-            console.log(error)
+        }catch{
+            setNotification("warning","error al buscar los productos" )
         }
        }
         fetchProducts()

@@ -7,9 +7,10 @@ import { useState } from "react"
 import useUser from "../../hooks/useUser"
 import "./Checkout.css"
 import { useNavigate } from "react-router-dom"
+import { useNotification } from "../../hooks/useNotification"
 
 export default function Checkout(){
-    
+    const {setNotification} = useNotification()
     const {service}= useService()
        const [name,setName] = useState("")
         const [lastname,setLastname] = useState("")
@@ -58,9 +59,10 @@ export default function Checkout(){
         
         try{
             const res = await service.createOrder(order)
-            console.log(res)
+            const resJson = await JSON.stringify(res)
+            setNotification("success",resJson)
         }catch(err){
-            console.log(err)
+            setNotification("warning",err)
         }
     
         navegate("/")

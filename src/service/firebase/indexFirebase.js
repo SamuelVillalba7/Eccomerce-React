@@ -100,7 +100,7 @@ export async function addUserFB(userData) {
         const userDoc = await addDoc(usersRef, userData);
 
         // Devolver el ID del nuevo documento
-        console.log(`Usuario registrado con ID: ${userDoc.id}`);
+     
         return { id: userDoc.id, ...userData };
     } catch (error) {
         console.error("Error al registrar el usuario:", error);
@@ -118,8 +118,8 @@ export async function findProductByIdFB(id) {
         if (snapshot.exists()) {
             return { id: snapshot.id, ...snapshot.data() };
         } else {
-            console.error("No se encontró el producto con ID:", id);
-            return null; // Si el producto no existe
+            const res = `No se encontró el producto con ID: ${id} `
+            return res; // Si el producto no existe
         }
     } catch (err) {
         console.error("Error al obtener el producto:", err);
@@ -229,11 +229,14 @@ export async function createOrderFB({cart, getTotal, clearCart, userAux}){
             await batch.commit();
             const orderRef = collection(db, "orders");
             const orderAdded = await addDoc(orderRef, objOrder);
-            console.log(`El id de su orden es: ${orderAdded.id}`);
 
+            const res= `El id de su orden es: ${orderAdded.id}`
             clearCart(); // Limpiar el carrito
+            return res
+
         } else {
-            console.log("Hay productos sin stock:", outOfStock);
+            const res= `Hay productos sin stock: ${outOfStock}`
+            return res
         }
     } catch (error) {
         console.error("Error al crear la orden:", error);

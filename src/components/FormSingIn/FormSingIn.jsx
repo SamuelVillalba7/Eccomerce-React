@@ -4,8 +4,11 @@ import "./FormSingIn.css"
 import {useState} from "react"
 import { useNavigate } from "react-router-dom"
 import { useService } from "../../hooks/useService"
-export default function FormSingIn(){
 
+import { useNotification } from "../../hooks/useNotification"
+export default function FormSingIn(){
+    
+    const {setNotification} = useNotification()
     const [name,setName] = useState("")
     const [lastname,setLastname] = useState("")
     const [phone,setPhone] = useState("")
@@ -22,12 +25,12 @@ export default function FormSingIn(){
             mail,
             password
         }
-        service.addUser(user).then((user) => {
-            console.log("Usuario registrado:", user);
+        service.addUser(user).then(() => {
+            setNotification("success", "Se registro correctamente")
             navegate("/login")
         })
-        .catch((error) => {
-            console.error("Error en el registro:", error.message);
+        .catch(() => {
+            setNotification("warning", "Error al registrar")
         })
         
     }

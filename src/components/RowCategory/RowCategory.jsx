@@ -11,7 +11,7 @@ export default function RowCategory({categories = []}){
         service.findCategoryById("5tVoXdHwgXg80M8IYuHp").then((res)=>{
             setCategory(res)
         })
-    },[])
+    },[service])
     const filteredCategories = categories.filter((item) => item.id !== "5tVoXdHwgXg80M8IYuHp");
     return ( 
         <div className="row fila">
