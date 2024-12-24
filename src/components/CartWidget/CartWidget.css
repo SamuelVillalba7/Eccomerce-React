@@ -1,0 +1,8 @@
+.imagen{
+    height: 1.3rem;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}

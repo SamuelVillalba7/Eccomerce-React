@@ -67,6 +67,10 @@ export function CartProvider({children}){
         return acum
     }
 
+    const getQuantity = ()=>{
+        return cart.length
+    }
+
     const clearCart=()=>{
         setCart([])
     }
@@ -79,7 +83,8 @@ export function CartProvider({children}){
         deleteById,
         getTotal ,
         clearCart,
-        orderDetail
+        orderDetail,
+        getQuantity
     }
 
 
