@@ -166,3 +166,14 @@ export async function createOrderSP(order) {
     return data
 
 }
+
+export async function findCategoryByIdSB(id) {
+    const url= `http://localhost:8080/category/findById/${id}`
+    const response  = await fetch(url)
+    if(!response.ok){
+        throw new Error(`Error en la solicitud: ${response.status} ${response.statusText}`);
+    }
+    const resJSON = await response.json()
+    return resJSON
+    
+}

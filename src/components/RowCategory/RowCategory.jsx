@@ -8,11 +8,14 @@ export default function RowCategory({categories = []}){
     const {service} = useService()
     const [category,setCategory]= useState({})
     useEffect(()=>{
-        service.findCategoryById("5tVoXdHwgXg80M8IYuHp").then((res)=>{
+
+        
+        service.findCategoryById(service.bd == "FB"? "5tVoXdHwgXg80M8IYuHp": "1").then((res)=>{
             setCategory(res)
         })
     },[service])
-    const filteredCategories = categories.filter((item) => item.id !== "5tVoXdHwgXg80M8IYuHp");
+    const filteredCategories = categories.filter((item) => item.id != (service.bd == "FB"? "5tVoXdHwgXg80M8IYuHp": "1"));
+   
     return ( 
         <div className="row fila">
             <ItemCategory  item={category} tam={"col-12"}/> 
