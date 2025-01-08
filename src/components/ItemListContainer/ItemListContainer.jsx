@@ -21,6 +21,7 @@ export default function ItemListContainer(){
 
             setProducts(data)
         }catch{
+            
             setNotification("warning","error al buscar los productos" )
         }
        }

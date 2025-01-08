@@ -7,7 +7,12 @@ import {
     loginSP,
     addUserSP,
     createOrderSP,
-    findCategoryByIdSB} from "../service/SpringBoot/index"
+    findCategoryByIdSP,
+    saveProductSP,
+    updateProductSP,
+    deleteProductSP,
+    highLogicSP,
+    lowLogicSP } from "../service/SpringBoot/index"
 
 import {
     findAllCategoriesFB,
@@ -27,15 +32,20 @@ export const ServiceContext= createContext()
 export function ServiceProvider({children}){
     
     const [service,setService]=useState({
-        findAllCategories:findAllCategoriesFB ,
-        findAllProducts:findAllProductsFB ,
-        findByCategory:findByCategoryFB ,
-        findProductById: findProductByIdFB,
-        login:loginFB ,
-        addUser : addUserFB,
-        createOrder : createOrderFB,
-        findCategoryById:findCategoryByIdFB,
-        bd : "FB"
+            findAllCategories:findAllCategoriesSP ,
+            findAllProducts:findAllProductsSP ,
+            findByCategory:findByCategorySP ,
+            findProductById: findProductByIdSP,
+            login:loginSP ,
+            addUser : addUserSP,
+            createOrder: createOrderSP,
+            findCategoryById:findCategoryByIdSP,
+            updateProduct :updateProductSP,
+            saveProduct: saveProductSP,
+            deleteProduct:deleteProductSP,
+            highLogic:highLogicSP,
+            lowLogic:lowLogicSP,
+            bd : "SP"
     })
 
 
@@ -48,8 +58,13 @@ export function ServiceProvider({children}){
             login:loginSP ,
             addUser : addUserSP,
             createOrder: createOrderSP,
-            findCategoryById:findCategoryByIdSB,
-            bd : "SB"
+            findCategoryById:findCategoryByIdSP,
+            updateProduct :updateProductSP,
+            saveProduct: saveProductSP,
+            deleteProduct:deleteProductSP,
+            highLogic:highLogicSP,
+            lowLogic:lowLogicSP,
+            bd : "SP"
         })
     }
 

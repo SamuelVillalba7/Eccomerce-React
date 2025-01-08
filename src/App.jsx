@@ -14,6 +14,7 @@ import { UserProvider } from './context/UserContext'
 import Checkout from './components/Checkout/Checkout'
 import Home from './components/home/Home'
 import { NotificationProvider } from './context/NotificationContext'
+import AdminProducts from './components/AdminProducts/AdminProducts'
 
 function App() {
   
@@ -34,6 +35,7 @@ function App() {
                 <Route path='/singIn' element={<SingIn/>} />
                 <Route path='/cart' element={<Cart/>} />
                 <Route path='/checkout' element={<Checkout/>} />
+                <Route path='/admin-products' element={<AdminProducts/>} />
                 <Route path='/*' element={<h1>no flaco sali</h1>} />
               </Routes>
             </NotificationProvider>

@@ -1,0 +1,19 @@
+.btn-update{
+    background-color: rgb(0, 132, 255);
+    color: white;
+}
+
+.btn-delete{
+    background-color: red;
+    color: white;
+}
+
+.btn-highState{
+    background-color: green;
+    color: white;
+}
+
+.btn-lowState{
+    background-color: rgb(41, 40, 40);
+    color: white;
+}

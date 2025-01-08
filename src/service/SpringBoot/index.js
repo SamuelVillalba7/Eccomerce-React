@@ -167,7 +167,7 @@ export async function createOrderSP(order) {
 
 }
 
-export async function findCategoryByIdSB(id) {
+export async function findCategoryByIdSP(id) {
     const url= `http://localhost:8080/category/findById/${id}`
     const response  = await fetch(url)
     if(!response.ok){
@@ -176,4 +176,108 @@ export async function findCategoryByIdSB(id) {
     const resJSON = await response.json()
     return resJSON
     
+}
+
+
+export async function updateProductSP(product) {
+    const url = "http://localhost:8080/product/update"
+    const config={
+        method:"PUT",
+        body: JSON.stringify(product),
+        headers: {
+            "Content-Type": "application/json",
+          }
+    }
+
+    const response = await fetch(url,config)
+    if(!response.ok){
+        throw new Error(`Error en la solicitud: ${response.status} ${response.statusText}`);
+    }
+    const resJSON = await response.json()
+    console.log(resJSON)
+    return resJSON 
+
+
+}
+
+export async function saveProductSP(product) {
+    const url = "http://localhost:8080/product/save"
+    const config={
+        method:"POST",
+        body: JSON.stringify(product),
+        headers: {
+            "Content-Type": "application/json",
+          }
+    }
+
+    const response = await fetch(url,config)
+    if(!response.ok){
+        throw new Error(`Error en la solicitud: ${response.status} ${response.statusText}`);
+    }
+    const resJSON = await response.json()
+    console.log(resJSON)
+    return resJSON 
+
+
+}
+
+
+
+export async function deleteProductSP(id){
+    const idProduct = parseInt(id, 10);
+
+    if (isNaN(idProduct)) {
+        throw new Error("El ID del producto no es un número válido.");
+    }
+    const url=`http://localhost:8080/product/delete?id=${idProduct}`
+    const config = {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    };
+
+    const response =  await fetch(url,config)
+    if(!response.ok){
+        throw new Error(`Error en la solicitud: ${response.status} ${response.statusText}`);
+    }
+
+}
+
+
+
+
+export async function lowLogicSP(id){
+
+    const url= `http://localhost:8080/product/lowLogic?id=${id}`
+    const config = {
+        method:"PUT",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    }
+
+    const response= await fetch(url,config)
+    if(!response.ok){
+        throw new Error(`Error en la solicitud: ${response.status} ${response.statusText}`);
+    }
+
+}
+
+
+export async function highLogicSP(id){
+
+    const url= `http://localhost:8080/product/highLogic?id=${id}`
+    const config = {
+        method:"PUT",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    }
+
+    const response= await fetch(url,config)
+    if(!response.ok){
+        throw new Error(`Error en la solicitud: ${response.status} ${response.statusText}`);
+    }
+
 }

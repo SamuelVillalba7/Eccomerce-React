@@ -17,6 +17,7 @@ export default function NavBar(){
                 <Link className="nav-link" to="/cart"><CartWidget /></Link>
                 <Link className="nav-link" to="/login">Login</Link>
                 <Link className="nav-link" to="/singIn">SingIn</Link>
+                <Link className="nav-link" to="/admin-products">Admin</Link>
                 
             </div>
             </div>

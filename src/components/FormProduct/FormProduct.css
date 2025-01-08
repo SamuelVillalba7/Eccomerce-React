@@ -1,0 +1,10 @@
+.FormProduct{
+    width: 33%;
+    margin: 5rem;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
